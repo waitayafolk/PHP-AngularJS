@@ -26,10 +26,10 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>
+                                <th class="text-center">
                                     #
                                 </th>
-                                <th>
+                                <th class="text-center">
                                     รหัสสินค้า
                                 </th>
                                 <th>
@@ -41,7 +41,7 @@
                                 <th>
                                     รายละเอียด
                                 </th>
-                                <th style="text-align: center" width="120px">
+                                <th style="text-align: center" width="250px">
                                 </th>
                             </tr>
                         </thead>
@@ -62,11 +62,15 @@
                                 <td>
                                     {{ products.product_detail }}
                                 </td>
-                                <td>
+                                <td style="text-align : center">
+                                    <button class="btn btn-warning" ng-click="print_barcode(products)">
+                                        <i class="fa fa-print">
+                                        </i>
+                                    </button>&nbsp;
                                     <button class="btn btn-primary" ng-click="modalEdit(products)">
                                         <i class="fa fa-pencil-alt">
                                         </i>
-                                    </button>
+                                    </button>&nbsp;
                                     <button class="btn btn-danger" ng-click="delete(products)">
                                         <i class="fa fa-times">
                                         </i>
@@ -88,7 +92,7 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <form ng-submit="actionSave()">
+                        <form>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="box box-success">
@@ -148,7 +152,7 @@
                                                 <select ng-model="input.group_product_id" class="form-control">
                                                     <option ng-repeat="g in groupProducts"
                                                         ng-value="g.id">
-                                                        {{ g.group_product_name}}: {{ g.group_product_name_eng}}
+                                                        {{ g.group_product_name}} : {{ g.group_product_name_eng}}
                                                     </option>
                                                 </select>
                                             </div>
@@ -156,22 +160,20 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                            <label>
-                                                อัพโหลดรูปภาพ
-                                            </label>
-                                        <div class="input-group" style="text-align: center;">
-                                            <input type="file" id="file1" class="form-control" name="file" ng-files="getTheFilesproduct($files)" ng-model="input.pictur" />
-                                            <a class="input-group-addon" ng-click="uploadFilesproduct(input.pictur)">
-                                                <i class=" fa fa-arrow-up "></i> Upload รูปภาพ
-                                            </a>
+                                    <div class="box box-success">
+                                        <div class="box-body">
+                                            <div>
+                                                <input type="file" name="image" id="image" ng-file-select="onFileSelect($files)">
+                                                    <br/>
+                                                <span class="errorMsg">{{ message}}</span>
+                                            </div>
                                         </div>
-                                        <!-- <small class="text-red">กรุณากด "Upload รูปภาพ"</small> -->
                                     </div>
                                 </div>
+                                
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" ng-click="actionSave()">
                                     <i class="fa fa-check">
                                     </i>
                                     บันทึก

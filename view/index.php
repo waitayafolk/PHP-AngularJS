@@ -1,8 +1,3 @@
-
-<?php 
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,6 +37,7 @@ session_start();
 
 <body id="page-top" ng-app="myApp" ng-controller="home" ng-init="startpage()">
     <div id="wrapper">
+    
     <?php
     $mymenu=isset($_GET['mymenu'])? $_GET['mymenu']:null;
     include ('left_menu.php');
@@ -52,6 +48,8 @@ session_start();
     <script type="text/javascript" src="../controller/ProductController.js"></script>
     <script type="text/javascript" src="../controller/DashbordController.js"></script>
     <script type="text/javascript" src="../controller/ImportstockController.js"></script>
+    <script type="text/javascript" src="../controller/SaleController.js"></script>
+    <script type="text/javascript" src="../controller/Reportstock.js"></script>
     
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

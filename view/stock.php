@@ -30,7 +30,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="card-body">
                 <div class="row"></div>
@@ -38,8 +37,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th> # </th>
-                                <th> รหัสสินค้า </th>
+                                <th class="text-center"> # </th>
+                                <th class="text-center"> รหัสสินค้า </th>
                                 <th> ชื่อสินค้า </th>
                                 <th> ราคา </th>
                                 <th> จำนวน </th>

@@ -6,56 +6,38 @@
                 <div class="card-body">
                     <button class="btn btn-primary btn-icon-split" ng-click="modalAdd()">
                         <span class="icon text-white-50">
-                            <i class="fas fa-plsu"></i>
+                            <i class="fas fa-plus"></i>
                         </span>
                         <span class="text">เพิ่มสมาชิกร้าน</span>
                     </button>
                 </div>
             <div>
             <div class="card-body">
-                <div class="row">
-                </div>
                 <div class='table-responsive'>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>
-                                    รหัสผู้ใช้ระบบ
-                                </th>
-                                <th>
-                                    ชื่อผู้ใช้ะบบ
-                                </th>
-                                <th>
-                                    Username
-                                </th>
+                                <th align="center">#</th>
+                                <th align="center">รหัสผู้ใช้ระบบ</th>
+                                <th>ชื่อผู้ใช้ะบบ</th>
+                                <th>Username</th>
                                 <th style="text-align: center" width="120px">
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="user in users">
-                            <td align="center">
-                                    {{$index + 1 }}
-                                </td>
-                                <td align="center">
-                                    {{ user.user_code }}
-                                </td>
-                                <td>
-                                    {{ user.name }}
-                                </td>
-                                <td>
-                                    {{ user.username }}
-                                </td>
+                            <td align="center">{{$index + 1 }}</td>
+                                <td align="center">{{ user.user_code }}</td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.username }}</td>
                                 <td>
                                     <button class="btn btn-primary" ng-click="modalEdit(user)">
-                                        <i class="fa fa-pencil-alt">
+                                        <i class="fa fa-pencil-alt"> 
                                         </i>
                                     </button>
                                     <button class="btn btn-danger" ng-click="delete(user)">
-                                        <i class="fa fa-times">
+                                        <i class="fa fa-times"> 
                                         </i>
                                     </button>
                                 </td>
@@ -65,13 +47,13 @@
                 </div>
             </div>
         </div> 
-        <div class="modal" id="modalUser" tabindex="-1" role="dialog">
+        <div class="modal fade" id="modalUser" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-aqua-active">
                         <h4 class="modal-title">
                             <i class="glyphicon glyphicon-book">
-                            </i> เพิ่มกลุ่มสินค้า
+                            </i> เพิ่มสมาชิก User 
                         </h4>
                     </div>
                     <div class="modal-body">
@@ -140,16 +122,3 @@
         </div> 
     </div>
 </div>
-<!-- <div class="form-group">
-                                                <label>
-                                                        ชื่อผู้ใช้ระบบ *
-                                                </label>
-                                                <input class="form-control" ng-model="input.name" required/>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label>
-                                                        Password *
-                                                </label>
-                                                <input type="password" class="form-control" ng-model="input.password" />
-                                            </div> -->

@@ -10,9 +10,6 @@ app.controller('ImportstockController', function($scope, $http) {
     $scope.startPage = function() {
         $scope.load_data();
         $scope.input.name = "";
-        $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
     };
 
     $scope.serach_product = function(input){
@@ -23,12 +20,11 @@ app.controller('ImportstockController', function($scope, $http) {
     }
 
     $scope.chooseProduct = function(item){
-        console.log(item)
+        // console.log(item)
         $http.post('../api/save_stock_temp.php', item).then(function(res) {
             $('#modalProduct').modal('hide');
             $scope.load_data();
-        });
-        
+        }); 
     }
 
     $scope.load_data = function(){
@@ -59,7 +55,7 @@ app.controller('ImportstockController', function($scope, $http) {
             bill : $scope.bill,
             temp : $scope.stock_temp
         }
-        console.log(psrams)
+        // console.log(psrams)
         $http.post('../api/Save_stock.php', psrams).then(res => {
             if (res.data.message == 'success') {
                 alertify.success('บันทึกข้อมูลเรียบร้อย');

@@ -1,24 +1,11 @@
-        <?php 
-        @session_start();
-            $level = $_SESSION["level"];
-            // echo $level;
-            // if(empty($level)){
-            //     include("404.php");
-            // }
-        ?>
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"> <h5>ร้านค้าปลีก-ส่ง {{level}}</h5></div>
+                <div class="sidebar-brand-text mx-3"> <h5>ร้านค้าปลีก-ส่ง </h5></div>
             </a>
             <hr class="sidebar-divider my-0">
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li> -->
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
                 บันทึกประจำวัน
@@ -35,6 +22,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>บันทึกประจำวัน</span>
                 </a>
+
                 <?php
                 if($mymenu == ""){
                     $open_info  = "";
@@ -56,9 +44,7 @@
                 ?>
                 <div id="collapseTwo" class="collapse <?php echo $open_info; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                         <a class="collapse-item <?php echo $active_info; ?>" href="?mymenu=sale">ขายสินค้า</a>
-                        <!-- <a class="collapse-item <?php echo $active_info; ?>" href="#">Cards</a> -->
                     </div>
                 </div>
             </li>
@@ -99,10 +85,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" ng-click="logout()">
-                    <i class="fas fa-fw fa-out"></i>
+                    <i class="fas fa-fw fa-logout"></i>
                     <span>Logout</span></a>
             </li>
-        
         </ul>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
@@ -113,13 +98,9 @@
                     <div class="text-right">
                         <h4>ระบบขายหน้าร้าน </h4>
                     </div>
-                    
                 </nav>
                 <div class="container-fluid">
                     <?php 
-                        if ($mymenu == "sale") {
-                        include("404.php");
-                        }
                         if ($mymenu == "group") {
                         include("product_group.php");
                         }
@@ -134,10 +115,12 @@
                         }else if ($mymenu == "dashbord") {
                             include("dashbord.php");
                         }if ($mymenu == "report_stock") {
-                            include("404.php");
+                            include("report_stock.php");
+                        }if ($mymenu == "sale") {
+                            include("sale.php");
                         }
                         ?>
-                    </div>
+                </div>
             </div>
         </div>
     </div>

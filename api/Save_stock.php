@@ -16,7 +16,7 @@ $stmt->execute(array(
 $id = $pdo->lastInsertId();
 
 $temp = $params->temp;
-foreach ($temp as $r) {
+foreach ($temp as $r) { 
 
   $sql = "
     INSERT INTO tb_stock_detail(stock_id, product_id, 	qty, price, status) 

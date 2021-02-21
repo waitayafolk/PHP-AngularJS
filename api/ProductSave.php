@@ -33,5 +33,4 @@ if(!empty($params->id)){
         $stmt->execute($product);
     }       
             echo json_encode(array('message' => 'success'));
-            // $id = $pdo->lastInsertId();
 ?>

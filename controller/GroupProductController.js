@@ -4,18 +4,20 @@ app.controller('GroupProductController', function($scope, $http) {
     $scope.importdata = {};
     $scope.importdata.data = "";
     $scope.startPage = function() {
+        // console.log("folk")
         $scope.loadGroupProduct();
     };
 
 
     $scope.actionSave = function() {
-        console.log($scope.input)
+        // console.log($scope.input)
         $http.post('../api/GroupProductSave.php', $scope.input).then(res => {
             if (res.data.message == 'success') {
                 alertify.success('บันทึกข้อมูลเรียบร้อย');
                 $scope.loadGroupProduct();
+                $('#modalGroupProduct').modal('hide');
             }
-            $('#modalGroupProduct').modal('hide');
+            
         });
     };
 
@@ -39,7 +41,7 @@ app.controller('GroupProductController', function($scope, $http) {
     };
 
     $scope.delete = function(input) {
-        var name = "ประเภทสินค้า: " + input.name;
+        var name = "ประเภทสินค้า: " + input.group_product_name;
         alertify.confirm('ยืนยันการลบข้อมูล', name, function() {
             $http.post('../api/GroupProductDelete.php', input).then(function(res) {
                 if (res.data.message == 'success') {

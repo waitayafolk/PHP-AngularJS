@@ -4,8 +4,7 @@ $params = json_decode(file_get_contents('php://input'));
     $sql =" SELECT tb_stock_temp.*,
     tb_product.product_name,
     tb_product.product_code,
-    tb_product.product_price,
-    tb_product.product_detail
+    tb_product.product_price
     FROM tb_stock_temp 
     INNER JOIN tb_product ON tb_product.id = tb_stock_temp.product_id";
     $stmt = $pdo->prepare($sql);
