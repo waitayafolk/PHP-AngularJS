@@ -16,7 +16,7 @@ $product_price = number_format($product[0]['product_price'],2);
 
 $code = $product_name ." " .$product_price . " .-";
 
-$style = '
+$style .= '
 <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js">
 </script>
 <style>
@@ -35,7 +35,7 @@ $style = '
 </style>
 ';
 
-$barcode = '
+$barcode .= '
 <button id="printPageButton" onClick="window.print();">Print</button>
 <td>
     <div style="display: inline-block;width: 250px;text-align: center;padding-left:5px ;padding-top:15px;">
