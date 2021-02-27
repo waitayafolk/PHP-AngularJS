@@ -12,6 +12,11 @@ $sql =" SELECT * FROM tb_admin WHERE status = 'use' AND username = :username AND
             $stmt->execute();
             $user = $stmt->fetch();
 
+            
+            $_SESSION["username"] = $user["username"];
+            $_SESSION["name"] = $user["name"];
+            $_SESSION["level"] = $user["level"];
+
             if(empty($user)){ 
                 echo json_encode(array('message' => 'invalid'));
             }else{

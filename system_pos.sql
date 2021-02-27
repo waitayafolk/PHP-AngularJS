@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2021 at 09:18 AM
+-- Generation Time: Feb 27, 2021 at 06:25 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -32,17 +32,20 @@ CREATE TABLE IF NOT EXISTS `tb_admin` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `level` varchar(20) DEFAULT NULL,
   `status` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_admin`
 --
 
-INSERT INTO `tb_admin` (`id`, `user_code`, `username`, `password`, `name`, `status`) VALUES
-(1, 'PS186722', 'admin', 'admin', 'Folk', 'use'),
-(2, '1547', 'awd', 'awd', '54', 'use'),
-(3, '187774', 'admin', 'admin', 'EIEi', 'delete');
+INSERT INTO `tb_admin` (`id`, `user_code`, `username`, `password`, `name`, `level`, `status`) VALUES
+(1, 'PS186722', 'admin', 'admin', 'Folk', 'admin', 'use'),
+(2, '1547', 'awd', 'awd', '54', 'sale', 'use'),
+(3, '187774', 'admin', 'admin', 'EIEi', 'member', 'delete'),
+(4, '1002', 'folk', '1234', 'folk', 'sale', 'use'),
+(5, '1003', 'folk2', '1234', 'folk2', 'member', 'use');
 
 -- --------------------------------------------------------
 
@@ -55,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `tb_bill_sale` (
   `pay_date` date NOT NULL,
   `total_sale` double NOT NULL,
   `get_money` double NOT NULL,
-  `status` int(11) NOT NULL
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
@@ -63,21 +66,21 @@ CREATE TABLE IF NOT EXISTS `tb_bill_sale` (
 --
 
 INSERT INTO `tb_bill_sale` (`bill_id`, `pay_date`, `total_sale`, `get_money`, `status`) VALUES
-(6, '2021-02-21', 237.5, 237.5, 0),
-(7, '2021-02-21', 10, 10, 0),
-(8, '2021-02-21', 0, 10, 0),
-(9, '2021-02-21', 15, 15, 0),
-(10, '2021-02-21', 15, 15, 0),
-(11, '2021-02-21', 0, 15, 0),
-(12, '2021-02-21', 10, 10, 0),
-(13, '2021-02-21', 10, 10, 0),
-(14, '2021-02-21', 10, 10, 0),
-(15, '2021-02-21', 25, 25, 0),
-(17, '2021-02-21', 0, 0, 0),
-(18, '2021-02-21', 0, 0, 0),
-(19, '2021-02-21', 0, 0, 0),
-(20, '2021-02-21', 25, 25, 0),
-(21, '2021-02-21', 10, 10, 0);
+(6, '2021-02-21', 237.5, 237.5, 'use'),
+(7, '2021-02-21', 10, 10, 'use'),
+(8, '2021-02-21', 0, 10, 'use'),
+(9, '2021-02-21', 15, 15, 'use'),
+(10, '2021-02-21', 15, 15, 'use'),
+(11, '2021-02-21', 0, 15, 'use'),
+(12, '2021-02-21', 10, 10, 'use'),
+(13, '2021-02-21', 10, 10, 'use'),
+(14, '2021-02-21', 10, 10, 'use'),
+(15, '2021-02-21', 25, 25, 'use'),
+(17, '2021-02-21', 0, 0, 'use'),
+(18, '2021-02-21', 0, 0, 'use'),
+(19, '2021-02-21', 0, 0, 'use'),
+(20, '2021-02-21', 25, 25, 'use'),
+(21, '2021-02-21', 10, 10, 'use');
 
 -- --------------------------------------------------------
 
@@ -173,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `tb_sale_temp` (
   `product_id` int(11) NOT NULL,
   `qty` double NOT NULL,
   `price` double NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -243,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `tb_stock_temp` (
   `product_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `price` double NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -311,7 +314,7 @@ ALTER TABLE `tb_stock_temp`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tb_bill_sale`
 --
@@ -336,7 +339,7 @@ ALTER TABLE `tb_product`
 -- AUTO_INCREMENT for table `tb_sale_temp`
 --
 ALTER TABLE `tb_sale_temp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tb_stock`
 --
@@ -351,7 +354,7 @@ ALTER TABLE `tb_stock_detail`
 -- AUTO_INCREMENT for table `tb_stock_temp`
 --
 ALTER TABLE `tb_stock_temp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -13,6 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -26,19 +27,6 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-    <!-- <style>
-    body {
-            background-image: url("img/ket-1-840x560.jpg");
-  /* Full height */
-  height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-        }
-    </style> -->
-
 </head>
 <!-- class="bg-gradient-primary" -->
 <body class="bg-gradient-primary" ng-app="myApp" ng-controller="Clt_login" ng-init="startPage()">
@@ -50,7 +38,7 @@
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="card-body"><h4 style="text-align: center;">ระบบร้านค้าปลีก-ส่ง</h4>
-                        <form autocomplete="off" ng-submit="login()">
+                        <form autocomplete="off" ng-submit = "login()">
                             <form>
                                 <div class="form-group">
                                     <input type="text" class="form-control" ng-model="user.username" placeholder="User">
